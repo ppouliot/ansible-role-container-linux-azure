@@ -1,4 +1,4 @@
-# ansible-role-container-linux.azure
+# Ansible Role: container-linux.azure
 
 An ansible role for deploying Container Linux instances on Azure
 
