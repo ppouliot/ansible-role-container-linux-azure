@@ -22,60 +22,70 @@ tenant=$AZURE_TENANT
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
 ### Azure Resource Group
+The name of the Azure Resource Group
 
 ```
 azure_rg: FlatcarVMs
 ```
 
 ### Azure Resource Group Location
+Azure Resource Group Location
 
 ```
 azure_rg_location: Eastus
 ```
 
 ### Azure Resource Group Network Name
+The name of the base network in the Azure resource group.
 
 ```
 azure_rg_virt_net_name: FlatcarVMsNetwork001
 ```
 
 ### Azure Resource Group Network CIDR"
+The network address in CIDR format for the base network in the Azure resource group.
 
 ```
 azure_rg_virt_net_cidr: "10.2.0.0/16"
 ```
 
 ### Azure Resource Group Network Subnet Name
+The name of the subnet in the base network in the Azure resource group.
 
 ```
 azure_rg_virt_subnet_name: FlatcarVMsSubNet001
 ```
 
 ### Azure Resource Group Network Subnet Address
+The network address in CIDR format for the subnet in the base network in the Azure resource group.
 
 ```
 azure_rg_virt_subnet_addr: "10.2.1.0/24"
 ```
 
 ### Azure Resource Group Security Group Name
+The name of the Security group under the Azure resource group.
 
 ```
 azure_rg_sec_group: FlatcarNetworkSecurityGroup001
 ```
 
 ### Azure Virtual Machine Size
+The size of the virtual machine to deploy on Azure.
 
 ```
 azure_vm_size: Standard_B1ms
 ```
 
 ### Azure Managed Disk Type
+The managed disk type to deploy your Azure virtual machine on.
 
 ```
 azure_managed_disk_type: Premium_LRS
 ```
 
 ### CoreOS Admin Password
+A default password for the CoreOS user.
 
 ```
 coreos_admin_password: Fl@tc@rL1nux
