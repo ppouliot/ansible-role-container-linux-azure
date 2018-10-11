@@ -8,7 +8,7 @@ An ansible role for deploying Container Linux instances on Azure
 
 An Azure account with a working Azure Client and Ansible[azure].
 
-### Azure Credentials ( ~/.azure/credentials )
+* Azure Credentials ( ~/.azure/credentials )
 
 ```
 [default]
@@ -18,6 +18,14 @@ secret=$AZURE_SECRET
 tenant=$AZURE_TENANT
 ```
 
+* Azure Credentials ( Environment Variables )
+
+```
+AZURE_CLIENT_ID=<YOUR_AZURE_CLIENT_ID>
+AZURE_SECRET=<YOUR_AZURE_PASSWORD>
+AZURE_SUBSCRIPTION_ID=<YOUR_AZURE_SUBSCRIPTION_ID>
+AZURE_TENANT=<YOUR_AZURE_TENANT_ID>
+```
 
 ## Role Variables
 ------------------
