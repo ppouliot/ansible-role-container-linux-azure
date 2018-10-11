@@ -12,7 +12,7 @@
   azure_rm_virtualnetwork:
     resource_group: "{{ azure_rg }}"
     name: "{{ azure_rg_virt_net_name }}"
-    address_prefixes: "{{ azure_rg_virt_net_addr }}"
+    address_prefixes: "{{ azure_rg_virt_net_cidr }}"
 
 - name: Add subnet for Flatcar VMs to FlatcarVMsNetwork
   azure_rm_subnet:

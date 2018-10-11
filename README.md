@@ -11,41 +11,61 @@ An Azure account with a working Azure Client and Ansible[azure].
 
 A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
 
+### Azure Resource Group
+
 ```
 azure_rg: FlatcarVMs
 ```
+
+### Azure Resource Group Location
 
 ```
 azure_rg_location: Eastus
 ```
 
+### Azure Resource Group Network Name
+
 ```
 azure_rg_virt_net_name: FlatcarVMsNetwork001
 ```
 
+### Azure Resource Group Network CIDR"
+
 ```
-azure_rg_virt_net_addr: "10.2.0.0/16"
+azure_rg_virt_net_cidr: "10.2.0.0/16"
 ```
+
+### Azure Resource Group Network Subnet Name
 
 ```
 azure_rg_virt_subnet_name: FlatcarVMsSubNet001
 ```
 
+### Azure Resource Group Network Subnet Address
+
 ```
 azure_rg_virt_subnet_addr: "10.2.1.0/24"
 ```
+
+### Azure Resource Group Security Group Name
 
 ```
 azure_rg_sec_group: FlatcarNetworkSecurityGroup001
 ```
 
+### Azure Virtual Machine Size
+
 ```
 azure_vm_size: Standard_B1ms
 ```
 
+### Azure Managed Disk Type
+
 ```
 azure_managed_disk_type: Premium_LRS
 ```
+
+### CoreOS Admin Password
 
 ```
 coreos_admin_password: Fl@tc@rL1nux
