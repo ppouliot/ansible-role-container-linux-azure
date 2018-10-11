@@ -1,0 +1,10 @@
+---
+# tasks file for container-linux.azure
+
+- name: Use localhost to provision Azure virtual machines
+  include_tasks: provision_azure_coreos_virtual_machines.yml
+  when: inventory_hostname == "localhost"
+
+- name: Download and Install Azure dynamic inventory script
+  include_tasks: azure_dynamic_inventory_script.yml
+  when: inventory_hostname == "localhost"
