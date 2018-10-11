@@ -6,7 +6,7 @@ An ansible role for deploying Container Linux instances on Azure
 ## Requirements
 ------------------
 
-An Azure account with a working Azure Client and Ansible[azure].
+An Azure account with credentials.  Locally installed and working Azure Client and Ansible[azure].
 
 * Azure Credentials ( ~/.azure/credentials )
 
