@@ -6,9 +6,7 @@ An ansible role for deploying Container Linux instances on Azure
 
 An Azure account with a working Azure Client and Ansible[azure].
 
-### Azure Credentials
-
-~/.azure/credentials
+### Azure Credentials ( ~/.azure/credentials )
 
 ```
 [default]
