@@ -9,4 +9,4 @@ azure_rg_virt_subnet_addr: "10.2.1.0/24"
 azure_rg_sec_group: FlatcarNetworkSecurityGroup001
 azure_vm_size: Standard_B1ms
 azure_managed_disk_type: Premium_LRS
-coreos_admin_password: Fl@tc@rL1nux
+container_linux_admin_password: Fl@tc@rL1nux

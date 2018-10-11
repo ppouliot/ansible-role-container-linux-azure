@@ -19,7 +19,7 @@ tenant=$AZURE_TENANT
 
 ## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+The following variables are configurable.  Please note that the default values are shown.
 
 ### Azure Resource Group
 The name of the Azure Resource Group
@@ -85,10 +85,10 @@ azure_managed_disk_type: Premium_LRS
 ```
 
 ### CoreOS Admin Password
-A default password for the CoreOS user.
+A default password for the Core user.
 
 ```
-coreos_admin_password: Fl@tc@rL1nux
+container_linux_admin_password: Fl@tc@rL1nux
 ```
 
 ## Dependencies
