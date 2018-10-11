@@ -42,7 +42,7 @@ The name of the base network in the Azure resource group.
 azure_rg_virt_net_name: FlatcarVMsNetwork001
 ```
 
-### Azure Resource Group Network CIDR"
+### Azure Resource Group Network CIDR
 The network address in CIDR format for the base network in the Azure resource group.
 
 ```
