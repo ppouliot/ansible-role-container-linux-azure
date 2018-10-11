@@ -1,8 +1,10 @@
 # Ansible Role: container-linux.azure
+------------------
 
 An ansible role for deploying Container Linux instances on Azure
 
 ## Requirements
+------------------
 
 An Azure account with a working Azure Client and Ansible[azure].
 
@@ -18,6 +20,7 @@ tenant=$AZURE_TENANT
 
 
 ## Role Variables
+------------------
 
 The following variables are configurable.  Please note that the default values are shown.
 
@@ -92,10 +95,12 @@ container_linux_admin_password: Fl@tc@rL1nux
 ```
 
 ## Dependencies
+------------------
 
 A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 ## Example Playbook
+------------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
@@ -107,6 +112,7 @@ Including an example of how to use your role (for instance, with variables passe
 ```
 
 ## License
+------------------
 
 [Apache 2.0](./LICENSE)
 
