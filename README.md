@@ -113,6 +113,23 @@ A default password for the Core user.
 container_linux_admin_password: Fl@tc@rL1nux
 ```
 
+### Container Linux SKU
+Define which Container Linux SKU to use on Azure.  'stable','beta' and 'alpha' are valid options.  'Default is to use the 'alpha'
+
+```
+container_linux_sku: 'alpha'
+```
+
+### Container Linux Version
+Define a specific version of container linux on Azure.  Default is to use the latest version of Container Linux.
+
+
+```
+container_linux_version: latest
+
+```
+
+
 ## Example Playbook
 ------------------
 
