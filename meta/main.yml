@@ -1,11 +1,12 @@
 galaxy_info:
-  author: your name
-  description: your description
-  company: your company (optional)
+  role_name: container-linux.azure
+  author: Peter Pouliot
+  description: Ansible for provisioning Container Linux virtual machines on Azure
+  # company: your company (optional)
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
-  # issue_tracker_url: http://example.com/issue/tracker
+  # issue_tracker_url: http://github.com/ppouliot/ansible-role-container-linux.azure/issues
 
   # Some suggested licenses:
   # - BSD (default)
@@ -14,7 +15,7 @@ galaxy_info:
   # - GPLv3
   # - Apache
   # - CC-BY
-  license: license (GPLv2, CC-BY, etc)
+  license: license (Apache)
 
   min_ansible_version: 2.4
 
