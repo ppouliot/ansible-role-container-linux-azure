@@ -2,8 +2,9 @@
 ---
 container_linux_virtual_machines:
   flatcar1:
-    azure_network_interface: FlatcarNIC002
+    azure_vm_nic: FlatcarNIC001
+    azure_vm_public_ip_name: FlatcarPublicIP001
+
   flatcar2:
-    azure_network_interface: FlatcarNIC002
-
-
+    azure_vm_nic: FlatcarNIC002
+    azure_vm_public_ip_name: FlatcarPublicIP002

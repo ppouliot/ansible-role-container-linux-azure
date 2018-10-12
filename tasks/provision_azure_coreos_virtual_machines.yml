@@ -23,27 +23,18 @@
     address_prefix: "{{ azure_rg_virt_subnet_addr }}"
     virtual_network: "{{ azure_rg_virt_net_name }}"
 
-- name: Create first public IP address for the virtual machine flatcar1.
+- name: Create public IP address for the virtual machine "{{ item.key }}".
   azure_rm_publicipaddress:
     resource_group: "{{ azure_rg }}"
     allocation_method: Static
-    name: FlatcarPublicIP001
+    name: "{{ azure_vm_public_ip_name }}"
+  with_dict "{{ container_linux_virtual_machines }}"
   register: output_ip_address
 
-- name: Dump public IP 1 for flatcar2 VM  which will be created
+- name: Dump public IP for "{{ item.key }}" VM  which will be created
   debug:
-    msg: "The public IP #1 is {{ output_ip_address.state.ip_address }}."
-
-- name: Create second public IP address for the virtual machine flatcar2.
-  azure_rm_publicipaddress:
-    resource_group: "{{ azure_rg }}"
-    allocation_method: Static
-    name: FlatcarPublicIP002
-  register: output_ip_address
-
-- name: Dump public IP 2 for flatcar2 VM  which will be created
-  debug:
-    msg: "The public IP #2 is {{ output_ip_address.state.ip_address }}."
+    msg: "The public IP for "{{ item.key }}" is {{ output_ip_address.state.ip_address }}."
+  with_dict "{{ container_linux_virtual_machines }}"
 
 - name: Create Network Security Group that allows SSH to the FlatcarVMs
   azure_rm_securitygroup:
@@ -71,29 +62,20 @@
         priority: 1003
         direction: Inbound
 
-- name: Creating first virtual network interface. 
+- name: Creating virtual network interface for "{{ item.key }}"
   azure_rm_networkinterface:
     resource_group: "{{ azure_rg }}"
-    name: FlatcarNIC001
+    name: "{{ item.value.azure_vm_nic }}"
     virtual_network: "{{ azure_rg_virt_net_name }}"
     subnet: "{{ azure_rg_virt_subnet_name }}"
-    public_ip_name: FlatcarPublicIP001
+    public_ip_name: "{{ azure_vm_public_ip_name }}"
     security_group: "{{ azure_rg_sec_group }}"
+  with_dict "{{ container_linux_virtual_machines }}"
 
-- name: Creating second virtual network interface.
-  azure_rm_networkinterface:
-    resource_group: "{{ azure_rg }}"
-    name: FlatcarNIC002
-    virtual_network: "{{ azure_rg_virt_net_name }}"
-    subnet: "{{ azure_rg_virt_subnet_name }}"
-    public_ip_name: FlatcarPublicIP002
-    security_group: "{{ azure_rg_sec_group }}"
-
-- name: Creating VirtualMachine
+- name: Creating VirtualMachine "{{ item.key }}"
   azure_rm_virtualmachine:
     name: "{{ item_key }}"
     resource_group: "{{ azure_rg }}"
-    name: flatcar2
     vm_size: "{{ azure_vm_size }}"
     managed_disk_type: "{{ azure_managed_disk_type }}"
     admin_username: core
@@ -102,7 +84,7 @@
     ssh_public_keys: 
       - path: "/home/core/.ssh/authorized_keys"
         key_data: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-    network_interfaces: "{{ item.value.nic }}"
+    network_interfaces: "{{ item.value.azure_vm_nic }}"
     image:
       offer: CoreOS
       publisher: CoreOS
