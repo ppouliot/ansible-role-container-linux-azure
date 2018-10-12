@@ -89,27 +89,9 @@
     public_ip_name: FlatcarPublicIP002
     security_group: "{{ azure_rg_sec_group }}"
 
-- name: Creating VirtualMachine Flatcar1
+- name: Creating VirtualMachine
   azure_rm_virtualmachine:
-    resource_group: "{{ azure_rg }}"
-    name: flatcar1
-    vm_size: "{{ azure_vm_size }}"
-    managed_disk_type: "{{ azure_managed_disk_type }}"
-    admin_username: core
-    admin_password: "{{ container_linux_admin_password }}"
-    ssh_password_enabled: true
-    ssh_public_keys:
-      - path: "/home/core/.ssh/authorized_keys"
-        key_data: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-    network_interfaces: FlatcarNIC001
-    image:
-      offer: CoreOS
-      publisher: CoreOS
-      sku: 'alpha'
-      version: latest
-
-- name: Creating VirtualMachine Flatcar2
-  azure_rm_virtualmachine:
+    name: "{{ item_key }}"
     resource_group: "{{ azure_rg }}"
     name: flatcar2
     vm_size: "{{ azure_vm_size }}"
@@ -120,9 +102,10 @@
     ssh_public_keys: 
       - path: "/home/core/.ssh/authorized_keys"
         key_data: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-    network_interfaces: FlatcarNIC002
+    network_interfaces: "{{ item.value.nic }}"
     image:
       offer: CoreOS
       publisher: CoreOS
       sku: "{{ container_linux_sku }}"
       version: "{{ container_linux_version }}"
+  with_dict "{{ container_linux_virtual_machines }}"

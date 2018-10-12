@@ -1,0 +1,9 @@
+# vars file for container-linux-azure
+---
+container_linux_virtual_machines:
+  flatcar1:
+    azure_network_interface: FlatcarNIC002
+  flatcar2:
+    azure_network_interface: FlatcarNIC002
+
+
