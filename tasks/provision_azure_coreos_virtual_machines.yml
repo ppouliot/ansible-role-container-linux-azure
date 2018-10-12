@@ -122,5 +122,5 @@
     image:
       offer: CoreOS
       publisher: CoreOS
-      sku: 'alpha'
-      version: latest
+      sku: "{{ container_linux_sku }}"
+      version: "{{ container_linux_version }}"
