@@ -3,6 +3,8 @@
 
 An ansible role for deploying Container Linux instances on Azure
 
+
+
 ## Requirements
 ------------------
 
@@ -95,7 +97,7 @@ The managed disk type to deploy your Azure virtual machine on.
 azure_managed_disk_type: Premium_LRS
 ```
 
-### CoreOS Admin Password
+### Container Linux Admin Password
 A default password for the Core user.
 
 ```
