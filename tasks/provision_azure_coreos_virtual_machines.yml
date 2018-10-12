@@ -23,18 +23,18 @@
     address_prefix: "{{ azure_rg_virt_subnet_addr }}"
     virtual_network: "{{ azure_rg_virt_net_name }}"
 
-- name: Create public IP address for the virtual machine "{{ item.key }}".
+- name: Create public IP address for the virtual machine
   azure_rm_publicipaddress:
     resource_group: "{{ azure_rg }}"
     allocation_method: Static
-    name: "{{ azure_vm_public_ip_name }}"
+    name: "{{ item.value.azure_vm_public_ip_name }}"
   with_dict: "{{ container_linux_virtual_machines }}"
-  register: output_ip_address
+  register: "output_ip_address"
 
-- name: Dump public IP for "{{ item.key }}" VM  which will be created
-  debug:
-    msg: "The public IP for "{{ item.key }}" is {{ output_ip_address.state.ip_address }}."
-  with_dict: "{{ container_linux_virtual_machines }}"
+#- name: Dump public IP for VM  which will be created
+# debug:
+#    msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+#  with_dict: "{{ container_linux_virtual_machines }}"
 
 - name: Create Network Security Group "{{ azure_rg_sec_group }}"  that allows SSH, HTTP, and HTTPS  to the Azure Resource Group "{{ azure_rg }}"
   azure_rm_securitygroup:
@@ -62,19 +62,19 @@
         priority: 1003
         direction: Inbound
 
-- name: Creating virtual network interface for "{{ item.key }}"
+- name: Creating virtual network interface on "{{ azure_rg_virt_subnet_name }}"
   azure_rm_networkinterface:
     resource_group: "{{ azure_rg }}"
     name: "{{ item.value.azure_vm_nic }}"
     virtual_network: "{{ azure_rg_virt_net_name }}"
     subnet: "{{ azure_rg_virt_subnet_name }}"
-    public_ip_name: "{{ azure_vm_public_ip_name }}"
+    public_ip_name: "{{ item.value.azure_vm_public_ip_name }}"
     security_group: "{{ azure_rg_sec_group }}"
   with_dict: "{{ container_linux_virtual_machines }}"
 
-- name: Creating VirtualMachine "{{ item.key }}"
+- name: Creating VirtualMachine
   azure_rm_virtualmachine:
-    name: "{{ item_key }}"
+    name: "{{ item.key }}"
     resource_group: "{{ azure_rg }}"
     vm_size: "{{ azure_vm_size }}"
     managed_disk_type: "{{ azure_managed_disk_type }}"
