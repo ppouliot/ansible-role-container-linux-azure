@@ -2,7 +2,7 @@
 # tasks/provision_azure_coreos_virtual_machines.yml
 ---
 
-- name: Create an Azure resource group for running the Virtual Machines
+- name: Create an Azure resource group "{{ azure_rg }}" for running the Virtual Machines
   azure_rm_resourcegroup:
     name: "{{ azure_rg }}"
     location: "{{ azure_rg_location }}"
@@ -10,13 +10,13 @@
       testing: container-linux
       delete: never
 
-- name: Create an Azure Virtual Network (10.2.0.0/16)
+- name: Create an Azure Virtual Network "{{ azure_rg_virt_net_cidr }}"
   azure_rm_virtualnetwork:
     resource_group: "{{ azure_rg }}"
     name: "{{ azure_rg_virt_net_name }}"
     address_prefixes: "{{ azure_rg_virt_net_cidr }}"
 
-- name: Add subnet for Flatcar VMs to FlatcarVMsNetwork
+- name: Add subnet for VMs to "{{ azure_rg_virt_net_name }}"
   azure_rm_subnet:
     resource_group: "{{ azure_rg }}"
     name: "{{ azure_rg_virt_subnet_name }}"
@@ -36,7 +36,7 @@
     msg: "The public IP for "{{ item.key }}" is {{ output_ip_address.state.ip_address }}."
   with_dict "{{ container_linux_virtual_machines }}"
 
-- name: Create Network Security Group that allows SSH to the FlatcarVMs
+- name: Create Network Security Group "{{ azure_rg_sec_group }}"  that allows SSH, HTTP, and HTTPS  to the Azure Resource Group "{{ azure_rg }}"
   azure_rm_securitygroup:
     resource_group: "{{ azure_rg }}"
     name: "{{ azure_rg_sec_group }}"
