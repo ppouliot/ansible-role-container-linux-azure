@@ -1,5 +1,5 @@
 ---
-# defaults file for container-linux.azure
+# defaults file for container-linux-azure
 
 # Azure Defaults
 azure_create_new_service_principle: False
