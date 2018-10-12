@@ -1,5 +1,7 @@
 #!/usr/bin/env ansible-playbook
+# tasks/provision_azure_coreos_virtual_machines.yml
 ---
+
 - name: Create an Azure resource group for running the Virtual Machines
   azure_rm_resourcegroup:
     name: "{{ azure_rg }}"

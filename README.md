@@ -1,4 +1,4 @@
-# Ansible Role: container-linux.azure
+# Ansible Role: container-linux-azure
 ------------------
 
 An ansible role for deploying Container Linux instances on Azure
@@ -123,7 +123,7 @@ Here is an example of typical usage.
 - hosts: localhost
   gather_facts: True
   roles:
-    - container-linux.azure
+    - container-linux-azure
 ```
 
 ## Contributors

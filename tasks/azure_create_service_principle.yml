@@ -1,4 +1,5 @@
 #!/usr/bin/env ansible-playbook
+# tasks/azure_create_service_principle.yml
 ---
 
 # Create a Service Principle for use deploying on Azure.

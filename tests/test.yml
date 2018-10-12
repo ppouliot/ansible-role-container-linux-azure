@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  gather_facts: True
   remote_user: root
   roles:
-    - container-linux.azure
+    - container-linux-azur

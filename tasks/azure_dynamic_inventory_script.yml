@@ -1,5 +1,7 @@
 #!/usr/bin/env ansible-playbook
+# tasks/azure_dynamic_inventory_script.yml
 ---
+
 
 - name: Retrieve Azure's Dynamic Inventory Script.
   get_url: 
