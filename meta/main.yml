@@ -5,8 +5,8 @@ galaxy_info:
   license: license (Apache)
   version: 0.0.1
   min_ansible_version: 2.4
-  galaxy_tags: []
-      - container-linux
-      - coreos
-      - Azure
-      - azure
+  galaxy_tags:
+    - container-linux
+    - coreos
+    - Azure
+    - azure

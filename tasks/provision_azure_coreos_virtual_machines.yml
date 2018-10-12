@@ -28,13 +28,13 @@
     resource_group: "{{ azure_rg }}"
     allocation_method: Static
     name: "{{ azure_vm_public_ip_name }}"
-  with_dict "{{ container_linux_virtual_machines }}"
+  with_dict: "{{ container_linux_virtual_machines }}"
   register: output_ip_address
 
 - name: Dump public IP for "{{ item.key }}" VM  which will be created
   debug:
     msg: "The public IP for "{{ item.key }}" is {{ output_ip_address.state.ip_address }}."
-  with_dict "{{ container_linux_virtual_machines }}"
+  with_dict: "{{ container_linux_virtual_machines }}"
 
 - name: Create Network Security Group "{{ azure_rg_sec_group }}"  that allows SSH, HTTP, and HTTPS  to the Azure Resource Group "{{ azure_rg }}"
   azure_rm_securitygroup:
@@ -70,7 +70,7 @@
     subnet: "{{ azure_rg_virt_subnet_name }}"
     public_ip_name: "{{ azure_vm_public_ip_name }}"
     security_group: "{{ azure_rg_sec_group }}"
-  with_dict "{{ container_linux_virtual_machines }}"
+  with_dict: "{{ container_linux_virtual_machines }}"
 
 - name: Creating VirtualMachine "{{ item.key }}"
   azure_rm_virtualmachine:
@@ -90,4 +90,4 @@
       publisher: CoreOS
       sku: "{{ container_linux_sku }}"
       version: "{{ container_linux_version }}"
-  with_dict "{{ container_linux_virtual_machines }}"
+  with_dict: "{{ container_linux_virtual_machines }}"
