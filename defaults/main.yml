@@ -10,3 +10,4 @@ azure_rg_sec_group: FlatcarNetworkSecurityGroup001
 azure_vm_size: Standard_B1ms
 azure_managed_disk_type: Premium_LRS
 container_linux_admin_password: Fl@tc@rL1nux
+azure_create_new_service_principle: False

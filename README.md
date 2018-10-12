@@ -34,6 +34,15 @@ AZURE_TENANT=<YOUR_AZURE_TENANT_ID>
 
 The following variables are configurable.  Please note that the default values are shown.
 
+### Create a new Azure Service Principle
+
+Setting the value to true will create a new service principle.
+
+```
+azure_create_new_service_principle: False
+azure_service_principle_name: <NEW_SERVICE_PRINCIPLE_NAME>
+```
+
 ### Azure Resource Group
 The name of the Azure Resource Group
 

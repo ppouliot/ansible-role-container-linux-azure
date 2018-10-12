@@ -1,0 +1,8 @@
+#!/usr/bin/env ansible-playbook
+---
+
+# Create a Service Principle for use deploying on Azure.
+
+- name: Create a Service Principle on Azure.
+  command: 'az ad sp create-for-rbac --name "{{ azure_service_principle_name }} > ~/.azure/service_principle.txt"'
+  when: "{{ azure_create_new_service_principle }}" == True
