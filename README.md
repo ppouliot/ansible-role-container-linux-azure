@@ -34,6 +34,7 @@ AZURE_TENANT=<YOUR_AZURE_TENANT_ID>
 
 The following variables are configurable.  Please note that the default values are shown.
 
+
 ### Create a new Azure Service Principle
 
 Setting the value to true will create a new service principle.
@@ -47,7 +48,7 @@ azure_service_principle_name: <NEW_SERVICE_PRINCIPLE_NAME>
 The name of the Azure Resource Group
 
 ```
-azure_rg: FlatcarVMs
+azure_rg: ContainerLinuxVMs
 ```
 
 ### Azure Resource Group Location
@@ -61,7 +62,7 @@ azure_rg_location: Eastus
 The name of the base network in the Azure resource group.
 
 ```
-azure_rg_virt_net_name: FlatcarVMsNetwork001
+azure_rg_virt_net_name: ContainerLinuxVMsNetwork001
 ```
 
 ### Azure Resource Group Network CIDR
@@ -75,7 +76,7 @@ azure_rg_virt_net_cidr: "10.2.0.0/16"
 The name of the subnet in the base network in the Azure resource group.
 
 ```
-azure_rg_virt_subnet_name: FlatcarVMsSubNet001
+azure_rg_virt_subnet_name: ContainerLinuxVMsSubNet001
 ```
 
 ### Azure Resource Group Network Subnet Address
@@ -83,13 +84,6 @@ The network address in CIDR format for the subnet in the base network in the Azu
 
 ```
 azure_rg_virt_subnet_addr: "10.2.1.0/24"
-```
-
-### Azure Resource Group Security Group Name
-The name of the Security group under the Azure resource group.
-
-```
-azure_rg_sec_group: FlatcarNetworkSecurityGroup001
 ```
 
 ### Azure Virtual Machine Size
@@ -104,6 +98,13 @@ The managed disk type to deploy your Azure virtual machine on.
 
 ```
 azure_managed_disk_type: Premium_LRS
+```
+
+### Azure Virtual Machines Total
+The total number of Azure Container Linux virtual machines to be created
+
+```
+azure_virtual_machines_total: 2
 ```
 
 ### Container Linux Admin Password

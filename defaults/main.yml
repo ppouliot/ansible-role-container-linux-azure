@@ -1,17 +1,23 @@
 ---
 # defaults file for container-linux-azure
 
-# Azure Defaults
+# Create a service Principle
 azure_create_new_service_principle: False
-azure_rg: FlatcarVMs
+azure_service_principle_name: azure-ansible-container-linux
+
+# Azure NamingDefaults
+azure_rg: ContainerLinuxVMs
 azure_rg_location: Eastus
-azure_rg_virt_net_name: FlatcarVMsNetwork001
+azure_rg_virt_net_name: ContainerLinuxVMsNetwork001
 azure_rg_virt_net_cidr: 10.2.0.0/16
-azure_rg_virt_subnet_name: FlatcarVMsSubNet001
+azure_rg_virt_subnet_name: ContainerLinuxVMsSubNet001
 azure_rg_virt_subnet_addr: 10.2.1.0/24
-azure_rg_sec_group: FlatcarNetworkSecurityGroup001
+
+
+# Virtual Machine Sizing and Quantity
 azure_vm_size: Standard_B1ms
 azure_managed_disk_type: Premium_LRS
+azure_virtual_machines_total: 2
 
 # Container Linux Defaults
 container_linux_admin_password: Fl@tc@rL1nux
