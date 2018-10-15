@@ -18,3 +18,6 @@
 - name: Use localhost to provision Azure virtual machines
   include_tasks: provision_azure_coreos_virtual_machines.yml
   when: inventory_hostname == "localhost"
+
+- name: Refresh inventory to ensure new instaces exist in inventory
+  meta: refresh_inventory
