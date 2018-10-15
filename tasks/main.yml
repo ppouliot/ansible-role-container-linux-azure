@@ -9,10 +9,12 @@
     - inventory_hostname == "localhost"
     - azure_create_new_service_principle == True
 
-- name: Use localhost to provision Azure virtual machines
-  include_tasks: provision_azure_coreos_virtual_machines.yml
-  when: inventory_hostname == "localhost"
-
 - name: Download and Install Azure dynamic inventory script
   include_tasks: azure_dynamic_inventory_script.yml
+  when: 
+    - inventory_hostname == "localhost"
+    - azure_install_dyanamic_inventory == True
+
+- name: Use localhost to provision Azure virtual machines
+  include_tasks: provision_azure_coreos_virtual_machines.yml
   when: inventory_hostname == "localhost"

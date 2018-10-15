@@ -48,6 +48,13 @@ azure_create_new_service_principle: False
 azure_service_principle_name: <NEW_SERVICE_PRINCIPLE_NAME>
 ```
 
+### Azure Install Dynamic Inventory
+Download and install the dynamic inventory script.
+
+```
+azure_install_dynamic_inventory: False
+```
+
 ### Azure Resource Group
 The name of the Azure Resource Group
 
