@@ -9,11 +9,11 @@ azure_service_principle_name: azure-ansible-container-linux
 azure_install_dynamic_inventory: False
 
 # Azure NamingDefaults
-azure_rg: ContainerLinuxVMs
+azure_rg: containerlinux-resource-group
 azure_rg_location: Eastus
-azure_rg_virt_net_name: ContainerLinuxVMsNetwork001
+azure_rg_virt_net_name: container-linux-vm-network001
 azure_rg_virt_net_cidr: 10.2.0.0/16
-azure_rg_virt_subnet_name: ContainerLinuxVMsSubNet001
+azure_rg_virt_subnet_name: container-linux-vm-subnet001
 azure_rg_virt_subnet_addr: 10.2.1.0/24
 
 
