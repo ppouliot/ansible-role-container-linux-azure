@@ -1,9 +1,7 @@
 # Ansible Role: container-linux-azure
 ------------------
 
-An ansible role for deploying Container Linux instances on Azure
-
-
+An ansible role for deploying multiple Container Linux instances on Azure.
 
 ## Requirements
 ------------------
