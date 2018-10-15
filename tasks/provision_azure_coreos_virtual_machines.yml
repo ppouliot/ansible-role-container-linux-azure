@@ -24,7 +24,7 @@
     virtual_network: "{{ azure_rg_virt_net_name }}"
 
 
-- name: "Creating {{ azure_virtual_machines_total }} {{ azure_vm_size }} Container Linux Virtual Machines in {{ azure_rg_location }}"
+- name: "Creating {{ azure_virtual_machines_total }} Azure {{ azure_vm_size }} Container Linux Virtual Machines in zone {{ azure_rg_location }}"
   azure_rm_virtualmachine:
     name: "{{ item }}"
     resource_group: "{{ azure_rg }}"
