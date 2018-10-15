@@ -34,6 +34,12 @@ AZURE_TENANT=<YOUR_AZURE_TENANT_ID>
 
 The following variables are configurable.  Please note that the default values are shown.
 
+### Virtual Machine Name Prefix
+The prefix to use for the virtual machine name.  Secondary part of the name is provided by the squence number.
+
+```
+virtual_machine_naming_prefix: containerlinux`
+```
 
 ### Create a new Azure Service Principle
 

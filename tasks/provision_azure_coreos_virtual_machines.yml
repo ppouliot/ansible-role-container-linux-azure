@@ -24,7 +24,7 @@
     virtual_network: "{{ azure_rg_virt_net_name }}"
 
 
-- name: Creating Container Linux VirtualMachine
+- name: Creating Container Linux VirtualMachine "{{ item }}"
   azure_rm_virtualmachine:
     name: "{{ item }}"
     resource_group: "{{ azure_rg }}"
@@ -43,9 +43,9 @@
       publisher: CoreOS
       sku: "{{ container_linux_sku }}"
       version: "{{ container_linux_version }}"
-  with_sequence: start=1 end="{{ azure_virtual_machines_total }}" format=flatcar%02x
+  with_sequence: start=1 end="{{ azure_virtual_machines_total }}" format="{{ virtual_machine_name_prefix }}"%02x
   register : azure 
 
-  - name  : Debug Azure output 
-    debug : 
-      var : azure 
+#  - name  : Debug Azure output 
+#    debug : 
+#      var : azure 
