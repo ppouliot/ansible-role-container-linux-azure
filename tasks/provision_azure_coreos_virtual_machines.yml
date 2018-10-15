@@ -43,5 +43,5 @@
       publisher: CoreOS
       sku: "{{ container_linux_sku }}"
       version: "{{ container_linux_version }}"
-  with_sequence: start=1 end="{{ azure_virtual_machines_total }}" format="{{ virtual_machine_name_prefix }}"%02x
+  with_sequence: start=1 end="{{ azure_virtual_machines_total }}" format="{{ virtual_machine_naming_prefix }}"%02x
   register : azure 
