@@ -6,6 +6,7 @@ virtual_machine_naming_prefix: containerlinux
 # Create a service Principle
 azure_create_new_service_principle: False
 azure_service_principle_name: azure-ansible-container-linux
+azure_install_dynamic_inventory: False
 
 # Azure NamingDefaults
 azure_rg: ContainerLinuxVMs
