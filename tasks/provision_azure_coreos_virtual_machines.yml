@@ -45,7 +45,3 @@
       version: "{{ container_linux_version }}"
   with_sequence: start=1 end="{{ azure_virtual_machines_total }}" format="{{ virtual_machine_name_prefix }}"%02x
   register : azure 
-
-#  - name  : Debug Azure output 
-#    debug : 
-#      var : azure 
