@@ -35,7 +35,7 @@
     ssh_password_enabled: true
     ssh_public_keys:
       - path: "/home/core/.ssh/authorized_keys"
-        key_data: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        key_data: "{{ lookup('file', '{{ ssh_public_key }}') }}"
     subnet_name: "{{ azure_rg_virt_subnet_name }}"
     virtual_network_name: "{{ azure_rg_virt_net_name }}"
     image:

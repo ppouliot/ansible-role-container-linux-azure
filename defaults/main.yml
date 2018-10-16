@@ -1,6 +1,7 @@
 ---
 # defaults file for container-linux-azure
 
+ssh_public_key: ~/.ssh/id_rsa.pub
 virtual_machine_naming_prefix: containerlinux
 
 # Create a service Principle
