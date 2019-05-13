@@ -1,8 +1,9 @@
+---
 galaxy_info:
   role_name: container-linux-azure
   author: ppouliot
-  description: Ansible for provisioning Container Linux (CoreOS) virtual machines on Azure
-  license: 
+  description: Provision Container Linux (CoreOS) virtual machines on Azure
+  license:
     - Apache
   version: 0.0.1
   min_ansible_version: 2.4

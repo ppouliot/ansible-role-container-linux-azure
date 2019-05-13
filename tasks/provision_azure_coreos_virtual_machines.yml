@@ -1,7 +1,7 @@
 #!/usr/bin/env ansible-playbook
 ---
 
-- name: Create an Azure resource group "{{ azure_rg }}" for running the Virtual Machines
+- name: Create an Azure resource group "{{ azure_rg }}"
   azure_rm_resourcegroup:
     name: "{{ azure_rg }}"
     location: "{{ azure_rg_location }}"
@@ -24,7 +24,8 @@
     virtual_network: "{{ azure_rg_virt_net_name }}"
 
 
-- name: "Creating {{ azure_virtual_machines_total }} Azure {{ azure_vm_size }} Container Linux Virtual Machines in zone {{ azure_rg_location }}"
+- name: "Creating {{ azure_virtual_machines_total }} Azure {{ azure_vm_size }} \
+         Container Linux Virtual Machines in zone {{ azure_rg_location }}"
   azure_rm_virtualmachine:
     name: "{{ item }}"
     resource_group: "{{ azure_rg }}"
@@ -43,5 +44,8 @@
       publisher: CoreOS
       sku: "{{ container_linux_sku }}"
       version: "{{ container_linux_version }}"
-  with_sequence: start=1 end="{{ azure_virtual_machines_total }}" format={{ virtual_machine_naming_prefix }}%02x
-  register: azure 
+  with_sequence:
+    - start=1
+    - end="{{ azure_virtual_machines_total }}"
+    - format={{ virtual_machine_naming_prefix }}%02x
+  register: azure

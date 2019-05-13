@@ -5,9 +5,11 @@ ssh_public_key: ~/.ssh/id_rsa.pub
 virtual_machine_naming_prefix: containerlinux
 
 # Create a service Principle
-azure_create_new_service_principle: False
+azure_create_new_service_principle: false
 azure_service_principle_name: azure-ansible-container-linux
-azure_install_dynamic_inventory: False
+# yamllint disable-line rule:line-length
+azure_dynamic_inventory_url: https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
+azure_install_dynamic_inventory: false
 
 # Azure NamingDefaults
 azure_rg: containerlinux-resource-group

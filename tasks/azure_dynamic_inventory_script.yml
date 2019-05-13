@@ -4,7 +4,7 @@
 
 
 - name: Retrieve Azure's Dynamic Inventory Script.
-  get_url: 
-    url: "https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py"
+  get_url:
+    url: "{{ azure_dynamic_inventory_url }}"
     dest: "~/azure_rm.py"
     mode: "0755"
