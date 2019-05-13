@@ -6,4 +6,4 @@
 
 - name: Create a Service Principle on Azure.
   command: az ad sp create-for-rbac --name "{{ azure_service_principle_name }}"
-  when: azure_create_new_service_principle  == True
+  when: azure_create_new_service_principle
