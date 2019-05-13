@@ -12,6 +12,8 @@ galaxy_info:
     - azure
   platforms:
     - name: CoreOS
+      versions:
+        - all
   catagories:
     - cloud
     - system
